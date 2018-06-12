@@ -13,7 +13,8 @@ $(function() {
     $('#btn').click(function() {        
         $.ajax({
             url: '/show',
-            data: $('form').serialize(),
+            data: { a: 'b'},// $('form').serialize(),
+            dataType: 'json',
             type: 'POST',
             success: function(response) {                
                 console.log(response)
