@@ -1,1 +1,29 @@
 <h1>Home</h1>
+
+<form>
+    <input name="inputName" id="inputName" placeholder="Name" required autofocus>
+    <button id="btn" type="button">Log</button>
+  </form>
+
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script>
+      
+$(function() {
+    $('#btn').click(function() {        
+        $.ajax({
+            url: '/show',
+            data: $('form').serialize(),
+            type: 'POST',
+            success: function(response) {                
+                console.log(response)
+                alert(response);
+            },
+            error: function(error) {
+                alert('error: ' + error);
+            }
+        });
+    });
+});
+  </script>
+  

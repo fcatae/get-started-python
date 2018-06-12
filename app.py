@@ -1,7 +1,8 @@
 from flask import (
     Flask,
     json,
-    render_template
+    render_template,
+    request
 )
 
 app = Flask(__name__, template_folder="static")
@@ -24,6 +25,10 @@ def home():
 @app.route('/json')
 def getjson():
     return json.dumps({'a':'123'})
+
+@app.route('/show', methods=['POST'])
+def show():
+    return request.form['inputName']
 
 if __name__ == '__main__':
     app.run(debug=True)
