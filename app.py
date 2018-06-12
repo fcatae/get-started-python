@@ -1,5 +1,6 @@
 from flask import (
     Flask,
+    json,
     render_template
 )
 
@@ -18,6 +19,11 @@ def home():
     :return:        the rendered template 'home.html'
     """
     return render_template('home.html')
+
+
+@app.route('/json')
+def getjson():
+    return json.dumps({'a':'123'})
 
 if __name__ == '__main__':
     app.run(debug=True)
